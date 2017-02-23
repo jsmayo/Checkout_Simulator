@@ -17,7 +17,7 @@ public class ExpressCartTest {
 
 	/**
 	 * Set up any needed files beforehand.
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception if not file is found.
 	 */
 	@Before
 	public void setUp() throws Exception {

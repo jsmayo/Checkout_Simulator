@@ -3,9 +3,9 @@ package edu.ncsu.csc216.checkout_simulator.items;
 import java.util.*;
 
 /**
- * A simple factory class whose only task is to generate shopping carts for a store.<br />
- *   Carts requiring special handling are generated 10% of the time, with process time 2.5 - 10 minutes. <br />
- *   Express carts are generated 20% of the time, with process time .5 - 2 minutes.<br />
+ * A simple factory class whose only task is to generate shopping carts for a store. 
+ *   Carts requiring special handling are generated 10% of the time, with process time 2.5 - 10 minutes.
+ *   Express carts are generated 20% of the time, with process time .5 - 2 minutes.
  *   Regular carts are generated 70% of the time, with process time 1.25 - 3.5 minutes.
  * @author Jo Perry
  * @see SpecialHandlingCart

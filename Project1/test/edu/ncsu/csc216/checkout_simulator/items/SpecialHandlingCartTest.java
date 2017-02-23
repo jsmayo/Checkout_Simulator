@@ -17,7 +17,7 @@ public class SpecialHandlingCartTest {
 
 	/**
 	 * Set up any needed files beforehand.
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception if no file is found.
 	 */
 	@Before
 	public void setUp() throws Exception {

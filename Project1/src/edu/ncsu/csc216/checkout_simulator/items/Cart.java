@@ -36,6 +36,7 @@ public abstract class Cart {
 	 * front of the Register's line. 
 	 */
 	public Cart(int arrivalTime, int processTime) {
+		if(arrivalTime < 0 || processTime < 0) throw new IllegalArgumentException(); 
 		this.arrivalTime = arrivalTime;
 		this.processTime = processTime;
 	}

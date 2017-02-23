@@ -10,8 +10,6 @@ import edu.ncsu.csc216.checkout_simulator.queues.LineOfItems;
  * 
  * @author Jo Perry
  * @version 3.0
- * @see Store
- * @see CheckoutRegister
  */
 public class EventCalendar {
 

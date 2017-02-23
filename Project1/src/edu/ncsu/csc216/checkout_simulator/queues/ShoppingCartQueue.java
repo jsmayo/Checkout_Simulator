@@ -40,7 +40,6 @@ public class ShoppingCartQueue {
 	/**
 	 * Removes and returns the front cart from the queue. 
 	 * @return the cart at the front of the queue
-	 * @throws NoSuchElementException if the queue is empty
 	 */
 	public Cart remove() {
 		//The call to queue.removeFirst() will throw the NoSuchElementException if

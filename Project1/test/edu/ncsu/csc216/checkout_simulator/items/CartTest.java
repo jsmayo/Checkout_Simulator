@@ -17,7 +17,7 @@ public class CartTest {
 
 	/**
 	 * Sets up any needed files before testing begins.
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception if need be.
 	 */
 	@Before
 	public void setUp() throws Exception {
