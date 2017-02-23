@@ -1,5 +1,6 @@
 package edu.ncsu.csc216.checkout_simulator.ui;
 
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
