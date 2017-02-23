@@ -22,7 +22,7 @@ public class ExpressCart extends Cart {
 	 * @param arrivalTime Time, in seconds, that the cart enters the selected checkout Register's line.
 	 * @param processTime Time, in seconds, that the cart takes to be completely processed during checkout.
 	 */
-	public ExpressCart(int arrivalTime, int processTime){
+	public ExpressCart(int arrivalTime, int processTime) {
 		super(arrivalTime, processTime);
 	}
 
@@ -32,7 +32,8 @@ public class ExpressCart extends Cart {
 	 * @param checkoutRegister An array holding the index values of all available checkout
 	 * Registers.
 	 */
-	public void getInLine(CheckoutRegister[] checkoutRegister){
+	public void getInLine(CheckoutRegister[] checkoutRegister) {
+		//to be implemented if needed
 	}
 
 	/**

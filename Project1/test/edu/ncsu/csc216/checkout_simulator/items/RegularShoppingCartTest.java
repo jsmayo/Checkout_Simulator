@@ -21,6 +21,7 @@ public class RegularShoppingCartTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		//to be implemented if needed
 	}
 
 	

@@ -13,7 +13,7 @@ import edu.ncsu.csc216.checkout_simulator.queues.CheckoutRegister;
  *
  *@author Steven Mayo
  */
-public class SpecialHandlingCart extends Cart{
+public class SpecialHandlingCart extends Cart {
 	/**Type-specific color for the regular variation of the Cart class. */
 	private static Color color = Color.RED;
 	/**Array object that holds the index values of Register objects.*/
@@ -26,7 +26,7 @@ public class SpecialHandlingCart extends Cart{
 	 * @param arrivalTime Time, in seconds, that the cart enters the selected checkout Register's line.
 	 * @param processTime Time, in seconds, that the cart takes to be completely processed during checkout.
 	 */
-	public SpecialHandlingCart(int arrivalTime, int processTime){
+	public SpecialHandlingCart(int arrivalTime, int processTime) {
 		super(arrivalTime, processTime);
 	}
 	
@@ -36,7 +36,8 @@ public class SpecialHandlingCart extends Cart{
 	 * @param checkoutRegister An array holding the index values of all available checkout
 	 * registers.
 	 */
-	public void getInLine(CheckoutRegister[] checkoutRegister){
+	public void getInLine(CheckoutRegister[] checkoutRegister) {
+		//to be implemented if needed
 	}
 	
 	/**

@@ -70,9 +70,11 @@ public class CheckoutRegister implements LineOfItems {
 	/**
 	 * Adds a cart to the end of the ShoppingCartQueue line and updates both the Cart's
 	 * waitTime and timeWhenAvailable field variables.
+	 * @param cart The Cart to be added to the ShoppingCartQueue.
 	 */
 	public void addCartToLine(Cart cart) {
-	
+		//to be implemented if needed
+		this.timeWhenAvailable += cart.getProcessTime(); //updating the time variable.
 	}
 
 }

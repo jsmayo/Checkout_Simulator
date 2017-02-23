@@ -34,6 +34,7 @@ public class RegularShoppingCart extends Cart {
 	 * registers.
 	 */
 	public void getInLine(CheckoutRegister[] checkoutRegister){
+		//to be implemented.
 	}
 	
 	/**

@@ -2,6 +2,8 @@
 package edu.ncsu.csc216.checkout_simulator.simulation;
 
 import java.awt.Color;
+import edu.ncsu.csc216.checkout_simulator.queues.CheckoutRegister;
+import edu.ncsu.csc216.checkout_simulator.queues.Store;
 
 /**
  * The Simulator class both runs the simulation and provideds step-by-step 
@@ -32,7 +34,10 @@ public class Simulator {
 	 * simulation.
 	 */
 	public Simulator(int numCarts, int numRegisters) {
-		
+		if(numRegisters < MIN_NUM_REGISTERS || numRegisters > MAX_NUM_REGISTERS) throw new IllegalArgumentException();
+		CheckoutRegister[] checkoutRegister = new CheckoutRegister[numRegisters];
+		Store store = new Store(numCarts, checkoutRegister);
+		//will fill in later.
 	}
 	
 	/**
@@ -61,6 +66,8 @@ public class Simulator {
 	 * Handles the next available event from the EventCalendar.
 	 */
 	public void step() {
+		//will fill in later.
+		//if isEmpty() = false -> processNext()?
 	}
 	
 	/**

@@ -24,7 +24,7 @@ public class Log {
 	 * logging.
 	 */
 	public Log() {
-		
+		//will fill in later.
 	}
 	
 	/**
@@ -40,6 +40,7 @@ public class Log {
 	 * @param cart The Cart to be logged
 	 */
 	public void logCart(Cart cart) {
+		//will fill in later.
 	}
 	
 	/**
@@ -49,7 +50,7 @@ public class Log {
 	 * during the simulation run.
 	 */
 	public double averageWaitTime() {
-		double averageWaitTime = (totalWaitTime)/getNumCompleted();
+		double averageWaitTime = (totalWaitTime) / getNumCompleted();
 		return averageWaitTime;
 	}
 	
@@ -61,7 +62,7 @@ public class Log {
 	 */
 	public double averageProcessTime() {
 		double averageProcessTime = 1.0;
-		averageProcessTime = (this.totalProcessTime/getNumCompleted());
+		averageProcessTime = (this.totalProcessTime / getNumCompleted());
 		return averageProcessTime;
 		
 	}

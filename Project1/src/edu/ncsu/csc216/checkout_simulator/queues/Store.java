@@ -27,7 +27,9 @@ public class Store implements LineOfItems {
 	 * @param register An array containing the CheckoutRegister objects. 
 	 */
 	public Store(int numberOfCarts, CheckoutRegister[] register){
+		shopping = new ShoppingCartQueue(); // Make the carts using CartFactory.create (loop? need times for creation), add the carts to the queue, add the carts to the queue using shipping.add().
 		this.register = register;
+		
 	}
 	
 	/**
@@ -35,7 +37,9 @@ public class Store implements LineOfItems {
 	 * @return The number of carts remaining in the shopping cart queue. 
 	 */
 	public int size(){
-		return shopping.size();
+		int size = -1;
+		//return shipping.size();
+		return size;
 	}
 	
 	/**
