@@ -14,7 +14,7 @@ import edu.ncsu.csc216.checkout_simulator.items.Cart;
 public class CheckoutRegister implements LineOfItems {
 	
 	/** The time when the Register line will be empty of Carts. */
-	private int timeWhenAvailable;
+	private int timeWhenAvailable = 0;
 	/**the queue of Carts needing processing. */
 	private ShoppingCartQueue line;
 	/** Log object used to log information of a processed Cart. */
@@ -46,7 +46,8 @@ public class CheckoutRegister implements LineOfItems {
 	 * @return Cart The Cart most recently processed.
 	 */
 	public Cart processNext() {
-		return null;
+		log.logCart(line.front());
+		return line.remove();
 	}
 	
 	/**
@@ -54,7 +55,9 @@ public class CheckoutRegister implements LineOfItems {
 	 * @return True if the ShoppingCartQueue is not empty. 
 	 */
 	public boolean hasNext() {
-		return false;
+		if(line.isEmpty()) return false;
+		//set wait time to zero if false?
+		return true;
 	}
 	
 	/**
@@ -64,7 +67,9 @@ public class CheckoutRegister implements LineOfItems {
 	 * the simulation.
 	 */
 	public int departTimeNext() {
-		return -1;
+		if(this.hasNext()) return (line.front().getArrivalTime() +
+				line.front().getWaitTime() + line.front().getProcessTime());
+		else return Integer.MAX_VALUE;
 	}
 	
 	/**
@@ -73,8 +78,9 @@ public class CheckoutRegister implements LineOfItems {
 	 * @param cart The Cart to be added to the ShoppingCartQueue.
 	 */
 	public void addCartToLine(Cart cart) {
-		//to be implemented if needed
-		this.timeWhenAvailable += cart.getProcessTime(); //updating the time variable.
-	}
+		cart.setWaitTime(this.timeWhenAvailable); //set the carts current wait time to the total wait time of the line.
+		this.timeWhenAvailable += cart.getProcessTime(); // update the checkoutregister time to be able to asssign next cart
+		line.add(cart); //add the cart to the shopping cart queue.
+		}
 
 }

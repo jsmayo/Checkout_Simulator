@@ -13,7 +13,7 @@ import edu.ncsu.csc216.checkout_simulator.items.Cart;
  */
 public class Log {
 	/** The number of Carts that have checked out and left the simulation. */
-	private int numCompleted;
+	private int numCompleted = 0;
 	/** The summation of all wait times logged by Carts that have already been processed. */
 	private int totalWaitTime;
 	/** Summation of each Cart's processing time, excluding wait time. */
@@ -24,7 +24,7 @@ public class Log {
 	 * logging.
 	 */
 	public Log() {
-		//will fill in later.
+		
 	}
 	
 	/**
@@ -40,7 +40,9 @@ public class Log {
 	 * @param cart The Cart to be logged
 	 */
 	public void logCart(Cart cart) {
-		//will fill in later.
+		this.totalWaitTime += cart.getWaitTime();
+		this.totalProcessTime += cart.getProcessTime();
+		numCompleted++;
 	}
 	
 	/**

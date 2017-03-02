@@ -28,6 +28,7 @@ public class Store implements LineOfItems {
 	 */
 	public Store(int numberOfCarts, CheckoutRegister[] register){
 		shopping = new ShoppingCartQueue(); // Make the carts using CartFactory.create (loop? need times for creation), add the carts to the queue, add the carts to the queue using shipping.add().
+		for(int i = 1; i <= numberOfCarts; i++) shopping.add(CartFactory.createCart());
 		this.register = register;
 		
 	}
@@ -37,9 +38,7 @@ public class Store implements LineOfItems {
 	 * @return The number of carts remaining in the shopping cart queue. 
 	 */
 	public int size(){
-		int size = -1;
-		//return shipping.size();
-		return size;
+		return shopping.size();
 	}
 	
 	/**
@@ -47,7 +46,7 @@ public class Store implements LineOfItems {
 	 * @return True if the shopping cart queue is not empty. 
 	 */
 	public boolean hasNext(){
-		if(shopping.size() > 0) return true;
+		if(shopping.size() > 0) return true; // use the ShoppingCartQueue.front() method 
 		return false;
 	}
 	
@@ -56,7 +55,9 @@ public class Store implements LineOfItems {
 	 * @return Cart The most recent cart removed from the shopping queue. 
 	 */
 	public Cart processNext() {
-		return null;
+		shopping.front().getInLine(register);
+		return shopping.remove();
+		
 	}
 	
 	/**
@@ -68,7 +69,8 @@ public class Store implements LineOfItems {
 	 * the checkout queue.
 	 */
 	public int departTimeNext(){
-		return Integer.MAX_VALUE;
+		if(this.hasNext()) return shopping.front().getArrivalTime();
+		else return Integer.MAX_VALUE;
 	}
 	
 }

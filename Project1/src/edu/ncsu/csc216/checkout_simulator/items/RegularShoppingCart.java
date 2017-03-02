@@ -34,8 +34,16 @@ public class RegularShoppingCart extends Cart {
 	 * registers.
 	 */
 	public void getInLine(CheckoutRegister[] checkoutRegister){
-		//to be implemented.
+		//loop through the registers available, get in the shortest line (totalWaitTime?), excluding
+		//index 0.
+		int numberWaiting = checkoutRegister[1].size(); //size of the number waiting. Arbitrarily set to first choice.
+		int shortestLineIndex = 1; //index number of the register with the shortest line
+		for(int i = 2; i < checkoutRegister.length; i++) { 
+			if(checkoutRegister[i].size() < numberWaiting) shortestLineIndex = i; //assign the shortest register line 
+		}
+		checkoutRegister[shortestLineIndex].addCartToLine(this); //add the cart to the shortest line
 	}
+	
 	
 	/**
 	 * Returns the type-specific color assigned to the regular variation of the Cart class.

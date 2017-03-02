@@ -4,6 +4,7 @@ package edu.ncsu.csc216.checkout_simulator.simulation;
 import java.awt.Color;
 import edu.ncsu.csc216.checkout_simulator.queues.CheckoutRegister;
 import edu.ncsu.csc216.checkout_simulator.queues.Store;
+import edu.ncsu.csc216.checkout_simulator.items.Cart;
 
 /**
  * The Simulator class both runs the simulation and provideds step-by-step 
@@ -23,6 +24,12 @@ public class Simulator {
 	private int numCarts;
 	/** Total number of steps/events simulated. */
 	private int stepsTaken;
+	/** The store object, housing carts still shopping. */
+	private Store theStore;
+	private CheckoutRegister[] register;
+	private Cart currentCart;
+	private EventCalendar theCalendar;
+	private Log myLog;
 	
 	/**
 	 * Constructor for the Simulator class that is used to create a Store object, 
@@ -34,9 +41,14 @@ public class Simulator {
 	 * simulation.
 	 */
 	public Simulator(int numCarts, int numRegisters) {
-		if(numRegisters < MIN_NUM_REGISTERS || numRegisters > MAX_NUM_REGISTERS) throw new IllegalArgumentException();
-		CheckoutRegister[] checkoutRegister = new CheckoutRegister[numRegisters];
-		Store store = new Store(numCarts, checkoutRegister);
+		if(numRegisters < MIN_NUM_REGISTERS || numRegisters > MAX_NUM_REGISTERS || numCarts < 1) throw new IllegalArgumentException();
+		this.numCarts = numCarts;
+		this.numRegisters = numRegisters;
+		//this.numRegisters was used to remove the checkstyle warning. Should have been fine, but assuming I need to 
+		//create a CheckoutRegister[] using a simulator object ONLY, then class variables are preferred.
+		register = new CheckoutRegister[this.numRegisters];
+		theStore = new Store(numCarts, register);
+		myLog = new Log();
 		//will fill in later.
 	}
 	
@@ -66,8 +78,11 @@ public class Simulator {
 	 * Handles the next available event from the EventCalendar.
 	 */
 	public void step() {
-		//will fill in later.
-		//if isEmpty() = false -> processNext()?
+		currentCart = null;
+		theCalendar = new EventCalendar(register, theStore);
+		currentCart = theCalendar.nextToBeProcessed().processNext();
+		stepsTaken++;
+
 	}
 	
 	/**
@@ -84,7 +99,9 @@ public class Simulator {
 	 * @return The total number of steps to be taken during the simulation.
 	 */
 	public int totalNumberOfSteps() {
-		return 1;
+		//step when a cart joins a checkoutline and when a cart checkouts, so
+		//2 steps per cart, assuming all carts checkout.
+		return 2 * numCarts;
 	}
 	
 	/**
@@ -93,7 +110,7 @@ public class Simulator {
 	 * @return True if the simulation is not finished, false otherwise.
 	 */
 	public boolean moreSteps() {
-		return false;
+		return (this.getStepsTaken() < this.totalNumberOfSteps());
 	}
 	
 	/**
@@ -102,7 +119,8 @@ public class Simulator {
 	 * @return -1 or the current index of the CheckoutRegister for the currentCart.
 	 */
 	public int getCurrentIndex() {
-		return -1;
+		if(currentCart != null) return currentCart.getRegisterIndex();
+		else return -1;
 	}
 	
 	/**
@@ -112,17 +130,18 @@ public class Simulator {
 	 * set to null.  
 	 */
 	public Color getCurrentCartColor() {
-		return null;
+		return currentCart.getColor();
 	}
 	
 	/**
-	 * Returns true if the most recently handled car completed checking out 
+	 * Returns true if the most recently handled cart completed checking out 
 	 * and left a register line. Returns false if the most recently handled 
 	 * cart left the shopping area to enter a register line or if there is no current cart.
 	 * @return true if the most recently handled cart exited the simulation, false otherwise.
 	 */
 	public boolean itemLeftSimulation() {
-		return false;
+		if(currentCart.isWaitingInRegisterLine()) return false;
+		return true;
 	}
 	
 	/**
@@ -131,7 +150,7 @@ public class Simulator {
 	 * @return The average number of seconds each cart waited in line before processing.
 	 */
 	public double averageWaitTime() {
-		return 1.0;
+		return myLog.averageWaitTime();
 	}
 	
 	/**
@@ -140,7 +159,7 @@ public class Simulator {
 	 * @return The average number of seconds each cart took to process.
 	 */
 	public double averageProcessTime() {
-		return 1.0;
+		return myLog.averageProcessTime();
 	}
 	
 }
