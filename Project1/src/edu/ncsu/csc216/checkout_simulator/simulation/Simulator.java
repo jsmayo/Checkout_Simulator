@@ -40,15 +40,21 @@ public class Simulator {
 	 * @param numRegisters The number of CheckoutRegisters to instantiate for 
 	 * simulation.
 	 */
-	public Simulator(int numCarts, int numRegisters) {
+	public Simulator(int numRegisters, int numCarts) {
 		if(numRegisters < MIN_NUM_REGISTERS || numRegisters > MAX_NUM_REGISTERS || numCarts < 1) throw new IllegalArgumentException();
 		this.numCarts = numCarts;
 		this.numRegisters = numRegisters;
+		myLog = new Log();
 		//this.numRegisters was used to remove the checkstyle warning. Should have been fine, but assuming I need to 
 		//create a CheckoutRegister[] using a simulator object ONLY, then class variables are preferred.
 		register = new CheckoutRegister[this.numRegisters];
+		for(int i = 0; i < register.length; i++) register[i] = new CheckoutRegister(myLog);
+			
 		theStore = new Store(numCarts, register);
-		myLog = new Log();
+		theCalendar = new EventCalendar(register, theStore);
+		
+	
+		
 		//will fill in later.
 	}
 	
@@ -79,7 +85,6 @@ public class Simulator {
 	 */
 	public void step() {
 		currentCart = null;
-		theCalendar = new EventCalendar(register, theStore);
 		currentCart = theCalendar.nextToBeProcessed().processNext();
 		stepsTaken++;
 

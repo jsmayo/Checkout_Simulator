@@ -39,6 +39,7 @@ public abstract class Cart {
 		if(arrivalTime < 0 || processTime < 0) throw new IllegalArgumentException(); 
 		this.arrivalTime = arrivalTime;
 		this.processTime = processTime;
+		waitingProcessing = false;
 	}
 	
 	/**
@@ -65,6 +66,7 @@ public abstract class Cart {
 	 */
 	public void setWaitTime(int waitTime) {
 		this.waitTime = waitTime;
+		this.waitingProcessing = true;
 	}
 	
 	/**

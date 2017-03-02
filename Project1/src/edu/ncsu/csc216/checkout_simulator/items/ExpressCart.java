@@ -38,7 +38,11 @@ public class ExpressCart extends Cart {
 		int numberWaiting = checkoutRegister[0].size(); //size of the number waiting 
 		int shortestLineIndex = 0; //index number of the register with the shortest line
 		for(int i = 1; i < checkoutRegister.length; i++) { 
-			if(checkoutRegister[i].size() < numberWaiting) shortestLineIndex = i; //assign the shortest register line/ Arbitrarily set to first choice.
+			if(checkoutRegister[i].size() < numberWaiting) {
+				numberWaiting = checkoutRegister[i].size();
+				shortestLineIndex = i; //assign the shortest register line/ Arbitrarily set to first choice.
+			}
+			else continue;
 		}
 		checkoutRegister[shortestLineIndex].addCartToLine(this); //add the cart to the shortest line
 			

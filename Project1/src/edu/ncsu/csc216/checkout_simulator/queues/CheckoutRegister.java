@@ -28,7 +28,7 @@ public class CheckoutRegister implements LineOfItems {
 	 */
 	public CheckoutRegister(Log log) {
 		this.log = log;
-		this.line = new ShoppingCartQueue();
+		line = new ShoppingCartQueue();
 	}
 	
 	/**

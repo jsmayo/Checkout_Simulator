@@ -27,6 +27,7 @@ public class Store implements LineOfItems {
 	 * @param register An array containing the CheckoutRegister objects. 
 	 */
 	public Store(int numberOfCarts, CheckoutRegister[] register){
+		new CartFactory(); //TODO not sure if needed
 		shopping = new ShoppingCartQueue(); // Make the carts using CartFactory.create (loop? need times for creation), add the carts to the queue, add the carts to the queue using shipping.add().
 		for(int i = 1; i <= numberOfCarts; i++) shopping.add(CartFactory.createCart());
 		this.register = register;
@@ -43,6 +44,7 @@ public class Store implements LineOfItems {
 	
 	/**
 	 * Returns true if the shopping cart queue is not empty, false otherwise.
+	 * 
 	 * @return True if the shopping cart queue is not empty. 
 	 */
 	public boolean hasNext(){

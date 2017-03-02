@@ -20,10 +20,8 @@ public class EventCalendar {
 
 	/**
 	 * Initializes the queues in the EventCalendar.
-	 * @param register
-	 *            all checkout registers
-	 * @param checkoutEntry
-	 *            holds carts coming from the shopping area into the checkout area
+	 * @param register all checkout registers
+	 * @param checkoutEntry holds carts coming from the shopping area into the checkout area
 	 */
 	public EventCalendar(LineOfItems[] register, LineOfItems checkoutEntry) {
 		this.register = register;
@@ -42,8 +40,7 @@ public class EventCalendar {
 		int nextFromShoppingArea = stillShopping.departTimeNext();
 		int soonest = 0;
 		for (int k = 1; k < register.length; k++)
-			if (register[k].departTimeNext() < register[soonest]
-					.departTimeNext())
+			if (register[k].departTimeNext() < register[soonest].departTimeNext())
 				soonest = k;
 		int departureFromCheckoutRegister = register[soonest].departTimeNext();
 
