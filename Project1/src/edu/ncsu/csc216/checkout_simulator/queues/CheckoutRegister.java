@@ -46,7 +46,7 @@ public class CheckoutRegister implements LineOfItems {
 	 * @return Cart The Cart most recently processed.
 	 */
 	public Cart processNext() {
-		log.logCart(line.front());
+		log.logCart(line.front()); //supposed to return exception if empty, so front is right.
 		return line.remove();
 	}
 	
@@ -79,7 +79,7 @@ public class CheckoutRegister implements LineOfItems {
 	 */
 	public void addCartToLine(Cart cart) {
 		cart.setWaitTime(this.timeWhenAvailable); //set the carts current wait time to the total wait time of the line.
-		this.timeWhenAvailable += cart.getProcessTime(); // update the checkoutregister time to be able to asssign next cart
+		timeWhenAvailable += cart.getProcessTime(); // update the checkoutregister time to be able to asssign next cart
 		line.add(cart); //add the cart to the shopping cart queue.
 		}
 

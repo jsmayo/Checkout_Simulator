@@ -35,16 +35,17 @@ public class ExpressCart extends Cart {
 	public void getInLine(CheckoutRegister[] checkoutRegister) {
 		//loop through the registers available, get in the shortest line (totalWaitTime?), including
 		//index 0.
-		int numberWaiting = checkoutRegister[0].size(); //size of the number waiting 
+		int numberWaiting = Integer.MAX_VALUE;//checkoutRegister[0].size(); //size of the number waiting 
 		int shortestLineIndex = 0; //index number of the register with the shortest line
-		for(int i = 1; i < checkoutRegister.length; i++) { 
+		for(int i = 0; i < checkoutRegister.length; i++) { 
 			if(checkoutRegister[i].size() < numberWaiting) {
 				numberWaiting = checkoutRegister[i].size();
 				shortestLineIndex = i; //assign the shortest register line/ Arbitrarily set to first choice.
 			}
-			else continue;
+			continue;
 		}
-		checkoutRegister[shortestLineIndex].addCartToLine(this); //add the cart to the shortest line
+		this.setRegisterIndex(shortestLineIndex);
+		checkoutRegister[this.getRegisterIndex()].addCartToLine(this); //add the cart to the shortest line
 			
 	}
 
