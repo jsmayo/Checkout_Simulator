@@ -15,24 +15,24 @@ public class Log {
 	/** The number of Carts that have checked out and left the simulation. */
 	private int numCompleted = 0;
 	/** The summation of all wait times logged by Carts that have already been processed. */
-	private int totalWaitTime;
+	private int totalWaitTime = 0;
 	/** Summation of each Cart's processing time, excluding wait time. */
-	private int totalProcessTime;
+	private int totalProcessTime = 0;
 	
 	/**
 	 * Constructor for the Log class that's needed for statistic tracking and data
 	 * logging.
 	 */
-	public Log() {
-		
+	public Log() { 
+		//null constructor
 	}
-	
+		
 	/**
 	 * Returns the number of Carts that have been processed.
 	 * @return numCompleted The number of Carts that have been processed.
 	 */
 	public int getNumCompleted() {
-		return numCompleted;
+		return this.numCompleted;
 	}
 	
 	/**
@@ -52,7 +52,9 @@ public class Log {
 	 * during the simulation run.
 	 */
 	public double averageWaitTime() {
-		double averageWaitTime = (totalWaitTime) / getNumCompleted();
+		double averageWaitTime = 0.0;
+		if(numCompleted == 0) return averageWaitTime;
+		else averageWaitTime = (totalWaitTime) / this.getNumCompleted();
 		return averageWaitTime;
 	}
 	
@@ -63,10 +65,10 @@ public class Log {
 	 * the simulation run.
 	 */
 	public double averageProcessTime() {
-		double averageProcessTime = 1.0;
-		averageProcessTime = (this.totalProcessTime / getNumCompleted());
+		double averageProcessTime = 0.0;
+		if(numCompleted == 0) return averageProcessTime;
+		else averageProcessTime = (this.totalProcessTime / getNumCompleted());
 		return averageProcessTime;
-		
 	}
 	
 }
