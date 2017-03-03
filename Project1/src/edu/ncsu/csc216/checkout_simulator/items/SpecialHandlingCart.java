@@ -46,7 +46,7 @@ public class SpecialHandlingCart extends Cart {
 		//index 0.
 		//numberWaiting = the number of people in special register lines. (length - specialRegisters)
 		//since they are always on the right (i.e. furtherest index).
-		int numberWaiting = 99999;//checkoutRegister[checkoutRegister.length - specialRegisters].size(); 
+		int numberWaiting = Integer.MAX_VALUE; //checkoutRegister[checkoutRegister.length - specialRegisters].size(); 
 		//starting at 1 more than the current line index for loop initiation.
 		int shortestLineIndex = checkoutRegister.length - specialRegisters; //index number of the register with the shortest line
 		for(int i = (checkoutRegister.length - specialRegisters + 1); i < checkoutRegister.length; i++) { 
