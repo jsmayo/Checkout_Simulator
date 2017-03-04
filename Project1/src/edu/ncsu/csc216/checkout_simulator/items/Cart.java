@@ -41,6 +41,7 @@ public abstract class Cart {
 		this.processTime = processTime;
 		waitingProcessing = false;
 		registerIndex = -1;
+		waitTime = 0;
 	}
 	
 	/**
