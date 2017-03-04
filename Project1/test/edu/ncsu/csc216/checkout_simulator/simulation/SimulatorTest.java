@@ -57,10 +57,11 @@ public class SimulatorTest {
 		assertEquals(2 * numCarts, sim.totalNumberOfSteps());
 		Color[] colors = {Color.GREEN, Color.BLUE, Color.RED};
 		Color[] colorsFromSim = Simulator.simulationColors();
-		assertEquals(colorsFromSim, colors);
+		assertTrue(colorsFromSim[1] == colors[1]);
 		String[] labels = {"Express", "Regular", "Special"};
 		String[] labelsFromSim = Simulator.simulationLabels();
-		assertEquals(labelsFromSim, labels);
+		assertTrue(labelsFromSim[1].equals(labels[1]));
+		assertTrue(labelsFromSim[2].equals(labels[2]));
 		
 		//Test simulator step
 		sim.step();
