@@ -78,7 +78,9 @@ public class CheckoutRegister implements LineOfItems {
 	 * @param cart The Cart to be added to the ShoppingCartQueue.
 	 */
 	public void addCartToLine(Cart cart) {
-		cart.setWaitTime(this.timeWhenAvailable); //set the carts current wait time to the total wait time of the line.
+		 //set the carts current wait time to the total wait time of the line.
+		if(timeWhenAvailable < cart.getArrivalTime() && this.hasNext()) cart.setWaitTime(0);
+		cart.setWaitTime(this.timeWhenAvailable);
 		timeWhenAvailable += cart.getProcessTime(); // update the checkoutregister time to be able to asssign next cart
 		line.add(cart); //add the cart to the shopping cart queue.
 		}
