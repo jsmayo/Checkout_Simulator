@@ -58,8 +58,9 @@ public class Store implements LineOfItems {
 	 * @return Cart The most recent cart removed from the shopping queue. 
 	 */
 	public Cart processNext() {
-		shopping.front().getInLine(register);
-		return shopping.remove();
+		Cart c = shopping.remove();
+		c.getInLine(register);
+		return c;
 		
 	}
 	
