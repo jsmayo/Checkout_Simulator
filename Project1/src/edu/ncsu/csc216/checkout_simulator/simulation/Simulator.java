@@ -74,7 +74,7 @@ public class Simulator {
 	 * @return String array containing the three Cart labels. 
 	 */
 	public static String[] simulationLabels() {
-		String[] labels = {"Express", "Regular", "Special"};
+		String[] labels = {"Express Cart", "Regular Cart", "Special Handling Cart"};
 	return labels;
 	}
 	

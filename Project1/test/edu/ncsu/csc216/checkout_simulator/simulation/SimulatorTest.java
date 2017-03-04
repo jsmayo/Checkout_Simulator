@@ -58,7 +58,7 @@ public class SimulatorTest {
 		Color[] colors = {Color.GREEN, Color.BLUE, Color.RED};
 		Color[] colorsFromSim = Simulator.simulationColors();
 		assertTrue(colorsFromSim[1] == colors[1]);
-		String[] labels = {"Express", "Regular", "Special"};
+		String[] labels = {"Express Cart", "Regular Cart", "Special Handling Cart"};
 		String[] labelsFromSim = Simulator.simulationLabels();
 		assertTrue(labelsFromSim[1].equals(labels[1]));
 		assertTrue(labelsFromSim[2].equals(labels[2]));
