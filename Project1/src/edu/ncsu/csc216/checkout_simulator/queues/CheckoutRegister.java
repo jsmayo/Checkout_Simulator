@@ -18,7 +18,7 @@ public class CheckoutRegister implements LineOfItems {
 	/**the queue of Carts needing processing. */
 	private ShoppingCartQueue line;
 	/** Log object used to log information of a processed Cart. */
-	private Log log;
+	private Log log = new Log();
 		
 	/**
 	 * Constructor method for the CheckoutRegister class. The constructor

@@ -16,7 +16,7 @@ public class Store implements LineOfItems {
 	/** The queue of carts that are still shopping. */ 
 	private ShoppingCartQueue shopping;
 	/** An array containing CheckoutRegister objects. */
-	private CheckoutRegister[] register;
+	private CheckoutRegister[] register = new CheckoutRegister[0];
 	
 	/**
 	 * Constructor for the Store object, which creates a first-in-first-out

@@ -51,8 +51,8 @@ public class Simulator {
 		register = new CheckoutRegister[this.numRegisters];
 		for(int i = 0; i < numRegisters; i++) register[i] = new CheckoutRegister(this.myLog);
 			
-		theStore = new Store(numCarts, register);
-		theCalendar = new EventCalendar(register, theStore);
+		theStore = new Store(numCarts, this.register);
+		theCalendar = new EventCalendar(this.register, theStore);
 		
 	
 		
