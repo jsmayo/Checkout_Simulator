@@ -38,8 +38,8 @@ public class Log {
 	 * @param cart The Cart to be logged
 	 */
 	public void logCart(Cart cart) {
-		this.totalWaitTime += cart.getWaitTime();
-		this.totalProcessTime += cart.getProcessTime();
+		totalWaitTime += cart.getWaitTime();
+		totalProcessTime += cart.getProcessTime();
 		numCompleted++;
 	}
 	

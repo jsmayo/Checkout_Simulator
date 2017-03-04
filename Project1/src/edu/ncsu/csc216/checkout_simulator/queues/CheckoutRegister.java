@@ -46,8 +46,9 @@ public class CheckoutRegister implements LineOfItems {
 	 * @return Cart The Cart most recently processed.
 	 */
 	public Cart processNext() {
-		log.logCart(line.front()); //supposed to return exception if empty, so front is right.
-		return line.remove();
+		Cart c = line.remove();
+		log.logCart(c); //supposed to return exception if empty, so front is right.
+		return c;
 	}
 	
 	/**

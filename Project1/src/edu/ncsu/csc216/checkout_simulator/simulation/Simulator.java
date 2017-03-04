@@ -53,6 +53,7 @@ public class Simulator {
 			
 		theStore = new Store(numCarts, this.register);
 		theCalendar = new EventCalendar(this.register, theStore);
+	
 		
 	
 		
