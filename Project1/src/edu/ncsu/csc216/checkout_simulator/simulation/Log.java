@@ -52,7 +52,7 @@ public class Log {
 	public double averageWaitTime() {
 		double averageWaitTime;
 		if(numCompleted == 0) averageWaitTime = 0.0;
-		else averageWaitTime = (totalWaitTime) / this.getNumCompleted();
+		else averageWaitTime = ((double)(totalWaitTime)) / this.getNumCompleted();
 		return averageWaitTime;
 	}
 	
@@ -65,7 +65,7 @@ public class Log {
 	public double averageProcessTime() {
 		double averageProcessTime;
 		if(numCompleted == 0) averageProcessTime = 0.0;
-		else averageProcessTime = (this.totalProcessTime / getNumCompleted());
+		else averageProcessTime = ((double)this.totalProcessTime / getNumCompleted());
 		return averageProcessTime;
 	}
 	
