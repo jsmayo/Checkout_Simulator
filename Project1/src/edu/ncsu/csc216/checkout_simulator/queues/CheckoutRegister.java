@@ -69,7 +69,7 @@ public class CheckoutRegister implements LineOfItems {
 	 * the simulation.
 	 */
 	public int departTimeNext() {
-		if(this.hasNext()) return (line.front().getArrivalTime() +
+		if(this.hasNext()) return (line.front().getArrivalTime() -1  +
 				line.front().getWaitTime() + line.front().getProcessTime());
 		else return Integer.MAX_VALUE;
 	}
