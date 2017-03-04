@@ -67,14 +67,15 @@ public class SimulatorTest {
 		sim.step();
 		assertEquals(1, sim.getStepsTaken());
 		assertTrue(sim.moreSteps());
-		assertNotEquals(1, sim.getCurrentIndex());
+		assertNotEquals(-1, sim.getCurrentIndex());
 		assertNotNull(sim.getCurrentCartColor());
 		//zero process and wait times due to first cart and non-empty queues.
-		assertFalse(sim.averageProcessTime() != 0);
+		assertTrue(sim.averageProcessTime() == 0);
 		assertFalse(sim.averageWaitTime() != 0);
 		//test that the cart was fully processed.
 		//first cart should be from the shopping cart queue and not checking out
 		assertFalse(sim.itemLeftSimulation()); 
+		while(sim.moreSteps()) sim.step();
 		
 	}
 
