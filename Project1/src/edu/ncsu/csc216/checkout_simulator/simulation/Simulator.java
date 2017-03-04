@@ -23,7 +23,7 @@ public class Simulator {
 	/** The number of Carts to be created. */
 	private int numCarts;
 	/** Total number of steps/events simulated. */
-	private int stepsTaken;
+	private int stepsTaken = 0;
 	/** The store object, housing carts still shopping. */
 	private Store theStore;
 	private CheckoutRegister[] register;
@@ -41,7 +41,8 @@ public class Simulator {
 	 * simulation.
 	 */
 	public Simulator(int numRegisters, int numCarts) {
-		if(numRegisters < MIN_NUM_REGISTERS || numRegisters > MAX_NUM_REGISTERS || numCarts < 1) throw new IllegalArgumentException();
+		if(numRegisters < MIN_NUM_REGISTERS || numRegisters > MAX_NUM_REGISTERS) throw new IllegalArgumentException("Number of registers must be between 3 and 12 inclusive.");
+		if(numCarts < 1) throw new IllegalArgumentException("There must be at least one shopping cart in the simulation.");
 		this.numCarts = numCarts;
 		this.numRegisters = numRegisters;
 		myLog = new Log();
@@ -115,6 +116,7 @@ public class Simulator {
 	 * @return True if the simulation is not finished, false otherwise.
 	 */
 	public boolean moreSteps() {
+		//if(currentCart == null) return 
 		return (this.getStepsTaken() < this.totalNumberOfSteps());
 	}
 	
@@ -135,6 +137,7 @@ public class Simulator {
 	 * set to null.  
 	 */
 	public Color getCurrentCartColor() {
+		if(currentCart == null) return null;
 		return currentCart.getColor();
 	}
 	

@@ -18,6 +18,7 @@ import edu.ncsu.csc216.checkout_simulator.simulation.Simulator;
  * Utility GUI class for automation legend
  * @author Jo Perry
  */
+@SuppressWarnings("serial")
 public class Legend extends JPanel {
 	
 	private Color[] hue = Simulator.simulationColors();

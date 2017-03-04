@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package edu.ncsu.csc216.checkout_simulator.simulation;
 import edu.ncsu.csc216.checkout_simulator.items.Cart;
 
@@ -52,8 +50,8 @@ public class Log {
 	 * during the simulation run.
 	 */
 	public double averageWaitTime() {
-		double averageWaitTime = 0.0;
-		if(numCompleted == 0) return averageWaitTime;
+		double averageWaitTime;
+		if(numCompleted == 0) averageWaitTime = 0.0;
 		else averageWaitTime = (totalWaitTime) / this.getNumCompleted();
 		return averageWaitTime;
 	}
@@ -65,8 +63,8 @@ public class Log {
 	 * the simulation run.
 	 */
 	public double averageProcessTime() {
-		double averageProcessTime = 0.0;
-		if(numCompleted == 0) return averageProcessTime;
+		double averageProcessTime;
+		if(numCompleted == 0) averageProcessTime = 0.0;
 		else averageProcessTime = (this.totalProcessTime / getNumCompleted());
 		return averageProcessTime;
 	}

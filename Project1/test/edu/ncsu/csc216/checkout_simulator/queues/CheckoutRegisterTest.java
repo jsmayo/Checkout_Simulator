@@ -33,14 +33,14 @@ public class CheckoutRegisterTest {
 		//test that the initial depart time is 0.
 		assertEquals(Integer.MAX_VALUE, cr.departTimeNext());
 		
-		//add a cart to the queue.
+		//add an express cart to the queue.
 		cr.addCartToLine(expressCart);
 		//test that the wait line is now 1
 		assertEquals(1, cr.size());
 		//test for true return on waiting processing
 		assertTrue(cr.hasNext());
 		//test that the departing time updated
-		assertEquals(40, cr.departTimeNext()); //TODO this didnt account for checkout time?
+		assertEquals(40, cr.departTimeNext()); 
 		
 		//try to process the cart
 		try {
@@ -51,5 +51,6 @@ public class CheckoutRegisterTest {
 		} catch (NoSuchElementException e){
 			fail();
 		}
+	
 	}	
 }

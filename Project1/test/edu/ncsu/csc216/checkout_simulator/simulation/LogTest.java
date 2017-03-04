@@ -1,9 +1,7 @@
 package edu.ncsu.csc216.checkout_simulator.simulation;
 
-
 import static org.junit.Assert.*;
 import org.junit.Test;
-
 import edu.ncsu.csc216.checkout_simulator.items.Cart;
 import edu.ncsu.csc216.checkout_simulator.items.ExpressCart;
 import edu.ncsu.csc216.checkout_simulator.queues.CheckoutRegister;

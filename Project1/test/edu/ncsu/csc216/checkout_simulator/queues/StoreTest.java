@@ -14,7 +14,7 @@ import edu.ncsu.csc216.checkout_simulator.simulation.Log;
 public class StoreTest {
 
 	Store store;
-	CheckoutRegister[] registers = new CheckoutRegister[3];
+	CheckoutRegister[] registers = new CheckoutRegister[9];
 	int numberOfCarts;
 	Log log = new Log();
 	
@@ -35,10 +35,10 @@ public class StoreTest {
 		assertEquals(Integer.MAX_VALUE, store.departTimeNext());
 		
 		//Test for carts added to queue
-		numberOfCarts = 20;
+		numberOfCarts = 50;
 		store = new Store(numberOfCarts, registers);
 		//test that carts were added to the store
-		assertEquals(20, store.size());
+		assertEquals(numberOfCarts, store.size());
 		//test that the queue is loaded
 		assertTrue(store.hasNext());
 		//test that the depart time changed.
@@ -48,11 +48,14 @@ public class StoreTest {
 		//test that process next removes a cart from the queue
 		store.processNext();
 		//test that the store decreased in size
-		assertEquals(19, store.size());
+		assertEquals(numberOfCarts - 1, store.size());
 		//test that the store still has a queue
 		assertTrue(store.hasNext());
 		//test that the departTime is different
 		assertNotEquals(priorCartDepart, store.departTimeNext());
+		while(store.size() > 0) {
+			store.processNext();
+		}
 		
 
 	}
