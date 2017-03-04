@@ -49,7 +49,7 @@ public class SpecialHandlingCart extends Cart {
 		int numberWaiting = Integer.MAX_VALUE; //checkoutRegister[checkoutRegister.length - specialRegisters].size(); 
 		//starting at 1 more than the current line index for loop initiation.
 		int shortestLineIndex = checkoutRegister.length - specialRegisters; //index number of the register with the shortest line
-		for(int i = (checkoutRegister.length - specialRegisters + 1); i < checkoutRegister.length; i++) { 
+		for(int i = (checkoutRegister.length - specialRegisters); i < checkoutRegister.length; i++) { 
 			if(checkoutRegister[i].size() < numberWaiting) {
 				numberWaiting = checkoutRegister[i].size();
 				shortestLineIndex = i; //assign the shortest register line 
