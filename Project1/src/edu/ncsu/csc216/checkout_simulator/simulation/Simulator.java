@@ -49,7 +49,7 @@ public class Simulator {
 		//this.numRegisters was used to remove the checkstyle warning. Should have been fine, but assuming I need to 
 		//create a CheckoutRegister[] using a simulator object ONLY, then class variables are preferred.
 		register = new CheckoutRegister[this.numRegisters];
-		for(int i = 0; i < numRegisters; i++) register[i] = new CheckoutRegister(myLog);
+		for(int i = 0; i < numRegisters; i++) register[i] = new CheckoutRegister(this.myLog);
 			
 		theStore = new Store(numCarts, register);
 		theCalendar = new EventCalendar(register, theStore);
