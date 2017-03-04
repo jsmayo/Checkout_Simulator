@@ -40,7 +40,7 @@ public class CheckoutRegisterTest {
 		//test for true return on waiting processing
 		assertTrue(cr.hasNext());
 		//test that the departing time updated
-		assertEquals(39, cr.departTimeNext()); 
+		assertEquals(40, cr.departTimeNext()); 
 		
 		//try to process the cart
 		try {

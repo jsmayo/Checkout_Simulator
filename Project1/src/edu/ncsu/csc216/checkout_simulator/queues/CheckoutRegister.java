@@ -69,7 +69,7 @@ public class CheckoutRegister implements LineOfItems {
 	 * the simulation.
 	 */
 	public int departTimeNext() {
-		if(this.hasNext()) return (line.front().getArrivalTime() -1  +
+		if(this.hasNext()) return (line.front().getArrivalTime()  +
 				line.front().getWaitTime() + line.front().getProcessTime());
 		else return Integer.MAX_VALUE;
 	}
@@ -80,11 +80,25 @@ public class CheckoutRegister implements LineOfItems {
 	 * @param cart The Cart to be added to the ShoppingCartQueue.
 	 */
 	public void addCartToLine(Cart cart) {
-		 //set the carts current wait time to the total wait time of the line.
-		if(timeWhenAvailable < cart.getArrivalTime() && !line.isEmpty()) cart.setWaitTime(0);
+		this.timeWhenAvailable += cart.getProcessTime();
+		if(line.isEmpty()) {
+			cart.setWaitTime(0);
+		}
 		else cart.setWaitTime(this.timeWhenAvailable);
-		timeWhenAvailable += cart.getProcessTime(); // update the checkoutregister time to be able to asssign next cart
+		if(this.timeWhenAvailable < cart.getArrivalTime() && !line.isEmpty()) cart.setWaitTime(0);
+//		else {
+//			cart.setWaitTime(this.timeWhenAvailable + cart.);
+//			cart.setWaitTime(timeWhenAvailable);
+//			timeWhenAvailable = timeWhenAvailiable + cart.getProcessTime();
+//		}
+//		
+//		timeWhenAvailable < cart.getArrivalTime() && !line.isEmpty()) cart.setWaitTime(0);
+//		else {
+//			this.timeWhenAvailiable = 
+//			cart.setWaitTime(this.timeWhenAvailable);
+		//timeWhenAvailable += cart.getProcessTime(); // update the checkoutregister time to be able to asssign next cart
 		line.add(cart); //add the cart to the shopping cart queue.
+		//this.timeWhenAvailable = this.timeWhenAvailable + cart.getProcessTime() + cart.getWaitTime()
 		}
 
 }
