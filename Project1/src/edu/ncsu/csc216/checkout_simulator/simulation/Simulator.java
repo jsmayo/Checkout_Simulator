@@ -145,6 +145,7 @@ public class Simulator {
 	 * @return true if the most recently handled cart exited the simulation, false otherwise.
 	 */
 	public boolean itemLeftSimulation() {
+		if(currentCart == null) return false;
 		if(currentCart.isWaitingInRegisterLine()) return false;
 		return true;
 	}
